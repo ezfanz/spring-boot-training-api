@@ -2,7 +2,15 @@ package irfan.learn.webservices.springboot.Model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Irfan {
+
+    @Id
+    @GeneratedValue
     private Integer id;
     private String nama;
     private LocalDate birthDate;

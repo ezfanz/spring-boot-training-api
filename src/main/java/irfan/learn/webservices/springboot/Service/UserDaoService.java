@@ -17,9 +17,9 @@ public class UserDaoService {
     private static int usersCount = 0;
     
     static {
-        users.add(new User(usersCount++, "Adam", LocalDate.now().minusYears(30)));
-        users.add(new User(usersCount++, "Eve", LocalDate.now().minusYears(25)));
-        users.add(new User(usersCount++, "Jim", LocalDate.now().minusYears(20)));
+        users.add(new User(usersCount++, "Adam", LocalDate.now().minusYears(30), "960928105925"));
+        users.add(new User(usersCount++, "Eve", LocalDate.now().minusYears(25), "960928105927"));
+        users.add(new User(usersCount++, "Jim", LocalDate.now().minusYears(20), "960928105928"));
 
     }
 
@@ -36,5 +36,10 @@ public class UserDaoService {
     public User findOne(int id) {
         Predicate<? super User> predicate = user -> user.getId().equals(id);
         return users.stream().filter(predicate).findFirst().orElse(null);
+    }
+
+    public void deleteById(int id) {
+        Predicate<? super User> predicate = user -> user.getId().equals(id);
+        users.removeIf(predicate);
     }
 }
